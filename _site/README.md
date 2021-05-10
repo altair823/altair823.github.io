@@ -1,11 +1,10 @@
 # altair823
 
-![CI](https://github.com/rundocs/jekyll-rtd-theme/workflows/CI/badge.svg?branch=develop)
-![jsDelivr](https://data.jsdelivr.com/v1/package/gh/rundocs/jekyll-rtd-theme/badge)
-
 그냥 이것저것 올리는 블로그
 
 ## 소개
+
+### 김태현
 
 춘천고등학교 인문계열 졸업
 
