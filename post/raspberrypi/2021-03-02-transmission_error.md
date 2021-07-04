@@ -6,13 +6,13 @@ author: altair823
 categories:
   - 라즈베리파이
 ---
-<img loading="lazy" class="alignnone size-full wp-image-137" src="https://altair823.com/wp-content/uploads/2021/03/21702F3C56D18F960C.png" alt="" width="624" height="315" srcset="https://altair823.com/wp-content/uploads/2021/03/21702F3C56D18F960C.png 624w, https://altair823.com/wp-content/uploads/2021/03/21702F3C56D18F960C-300x151.png 300w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" />
+<img src="https://user-images.githubusercontent.com/46125008/123520657-9d066500-d6ec-11eb-8a72-3f0d2c95f995.png">
 
-정리하다면 &#8220;Permission&#8221; 오류는 토렌트로 받은 파일을 저장할 공간의 권한 문제로 발생하는 오류라는 것이다. 다운로드 할 목적지 폴더와 트랜스미션의 사용자를 맞춰주면 된다. 모든 권한을 열고 트랜스미션의 유저 이름을 root로 하는 것도 방법이지만 블로그 서버도 돌아가는 라즈베리파이의 보안을 신경쓰지 않을 수 없다. 따라서 폴더의 소유자와 그 권한을 바꾸는 작업을 했다.
+정리하자면 &#8220;Permission&#8221; 오류는 토렌트로 받은 파일을 저장할 공간의 권한 문제로 발생하는 오류라는 것이다. 다운로드 할 목적지 폴더와 트랜스미션의 사용자를 맞춰주면 된다. 모든 권한을 열고 트랜스미션의 유저 이름을 root로 하는 것도 방법이지만 블로그 서버도 돌아가는 라즈베리파이의 보안을 신경쓰지 않을 수 없다. 따라서 폴더의 소유자와 그 권한을 바꾸는 작업을 했다.
 
 ### 권한의 이해
 
-<img loading="lazy" class="alignnone size-full wp-image-136" src="https://altair823.com/wp-content/uploads/2021/03/스크린샷-2021-03-02-오후-3.19.31.png" alt="" width="277" height="196" /> 
+<img src="https://user-images.githubusercontent.com/46125008/123520656-9d066500-d6ec-11eb-8274-c0106543e204.png"> 
 
 ssh로 접속하여 ls -al로 확인한 전체 폴더들의 권한들이다. 맨 앞의 d는 디렉터리, 즉 폴더라는 뜻이다. 그 뒤로 나타나는 r, w, x는 각각 read, write, execute, 그러니까 읽기권한, 쓰기권한, 실행권한이라는 뜻이다. d (단일 파일이라면 -)이후의 부분은 세 개씩 잘라 읽으면 되는데, 앞에서부터 \[소유자의 권한\]\[그룹의 권한\][그 외 사용자의 권한]을 뜻한다.
 
