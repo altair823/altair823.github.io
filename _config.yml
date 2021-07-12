@@ -38,4 +38,6 @@ lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-disqus_shortname: https-altair823-com
+disqus:
+  comments: true
+  shortname: 'https-altair823-com'
