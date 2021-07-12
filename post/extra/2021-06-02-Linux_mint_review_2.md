@@ -59,3 +59,11 @@ date: 2021-06-21
 내가 SMB나 FTP만 사용하여 파일을 주고받는 서버 역할의 컴퓨터를 구성한다면 고민도 없이 데비안 기반 OS를 설치할 것이다. 친구들끼리 접속하는 작은 게임 서버를 만든다면 이 역시 우분투나 아치를 선택할 것이다. 왜냐하면 그것들은 아주 적은 몇 가지 일들만 '잘'하면 되기 때문이다. 하지만 만약 '아주 많은 종류'의 일들을 성능은 그럭저럭일지 몰라도 '확실하게' 해야 한다면 리눅스 진영의 OS를 선택하고 싶지 않다. 
 
 간간히 성능 비교 등을 위해 다른 환경이 필요할 때나 리눅스 민트를 켤 것 같다. 온전히 리눅스 민트만 쓰기에는 윈도우와 맥에 너무나 많은 편리함이 존재한다. 
+
+<script src="https://utteranc.es/client.js"
+        repo="altair823/blog_comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>

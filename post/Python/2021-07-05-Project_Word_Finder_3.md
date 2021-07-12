@@ -60,3 +60,10 @@ WordInput은 입력 인터페이스의 역할을 한다. 비록 지금은 NaverF
 
 아직 경험이 많이 부족해 책에 대한 깊은 이해는 하지 못했다고 생각한다. 그래도 여러 프로젝트를 하며 머릿속을 맴돌던 소프트웨어 아키텍쳐에 대한 개념을 확실히 잡게 해준 책이었다. 이 프로젝트를 진행하면서 제대로된 프로그램 구조를 생각하고 구현할 수 있게 되었다. 
 
+<script src="https://utteranc.es/client.js"
+        repo="altair823/blog_comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>

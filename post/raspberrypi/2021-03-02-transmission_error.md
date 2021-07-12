@@ -47,3 +47,11 @@ d rwx rws r-x :
 <pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="godzilla" data-enlighter-linenumbers="false">sudo service transmission-daemon start</pre>
 
 다시 토렌트 파일들을 넣어 확인해보면 정상적으로 작동하는 것을 볼수 있을 것이다.
+
+<script src="https://utteranc.es/client.js"
+        repo="altair823/blog_comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>

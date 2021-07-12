@@ -63,3 +63,13 @@ GUI 프로그래밍이 이번이 두 번째고 아직 제대로 된 개념조차
 ## 마무리
 
 비록 많이 부족한 실력이지만 그동안 배운 것들과 지금 배우고 있는 것들을 직접 사용해보고 구체화하는 과정에서 공고히 할 수 있었다. 생전 관심 없었던 PyQt5도 외국 원서까지 구매해 봐가면서 익혀야 했고 반응성 개선을 위해 멀티스레딩도 머리 싸매며 공부했다. 내가 워낙 모자라서 그런지 몰라도 정말 많이 배울 수 있었던 프로젝트였다. 
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="altair823/blog_comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>

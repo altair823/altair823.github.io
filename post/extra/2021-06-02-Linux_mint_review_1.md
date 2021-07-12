@@ -54,3 +54,12 @@ macOS를 사용하면서 불만이 있었다면 그것은 바로 버벅임이었
 
 어찌되었던 오픈소스인 이상 리눅스 민트를 포함한 리눅스 계열 OS는 끊임없이 변화한다. 어찌보면 macOS나 윈도우보다 더. 그것이 내가 리눅스를 쓰게되는 가장 큰 매력이다. 지금이 마음에 들지 않거나 더 마음에 드는 OS가 나타나면 언제든지 옮겨갈 수 있는 자유, 그것이 리눅스를 계속 쓰게되는 이유인 것 같다. 
 
+
+
+<script src="https://utteranc.es/client.js"
+        repo="altair823/blog_comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>

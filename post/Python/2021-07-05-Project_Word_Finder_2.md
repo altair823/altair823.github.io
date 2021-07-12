@@ -111,3 +111,12 @@ class Updater_GUI(QDialog, updater_gui):
 ```
 
 [전체 코드](https://github.com/altair823/WordFinder/blob/master/gui/update_window_gui.py)는 깃허브에서 볼 수 있다. 
+
+
+<script src="https://utteranc.es/client.js"
+        repo="altair823/blog_comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
