@@ -37,4 +37,7 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+<<<<<<< HEAD
 
+=======
+>>>>>>> 424da2951348963f17434dd21d6b81535ce63c00
