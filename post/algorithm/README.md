@@ -1,6 +1,6 @@
 ---
-sort: 3
+sort: 2
 ---
-# 라즈베리파이
+# 알고리즘
 
 {% include list.liquid all=true %}
