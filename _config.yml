@@ -37,8 +37,3 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
-
-comments:
-  provider: "disqus"
-    dispus: 
-      shortname: "https-altair823-com"
