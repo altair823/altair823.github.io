@@ -37,3 +37,5 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+
+disqus_shortname: https-altair823-com
