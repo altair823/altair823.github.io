@@ -2,7 +2,8 @@
 title:  "미로 생성 알고리즘"
 excerpt: "미로 생성 알고리즘"
 
-categories:algorithm
+categories:
+ algorithm
  
 tags:
  [algorithm, maze]
