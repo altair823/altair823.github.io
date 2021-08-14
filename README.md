@@ -12,10 +12,9 @@
 
 중앙대학교 컴퓨터 공학 복수전공 이수중
 
+### [Github](https://github.com/altair823)
+
 ## Blog theme
 
 [jekyll-rtd-theme](https://github.com/rundocs/jekyll-rtd-theme)
 
-## The license
-
-The theme is available as open source under the terms of the MIT License
