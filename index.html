@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Taehyeon Kim — Backend · DevOps · Data</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; -webkit-font-smoothing: antialiased; background: var(--bg);
+    --bg: #f4f3ef; --grid: rgba(22,24,29,0.05); --ink: #16181d; --muted: #55534a; --faint: #8a887e;
+    --hairline: #dbd9cf; --card: #fbfaf7; --accent: #e8490f; --accent-ink: #f4f3ef; }
+  @keyframes tk-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+</style>
+</helmet>
+
+<div data-screen-label="Home" style="min-height: 100vh; background: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 56px 56px; font-family: 'Pretendard Variable', Pretendard, sans-serif; color: var(--ink); display: flex; flex-direction: column;">
+
+  <!-- NAV -->
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 22px 56px; border-bottom: 1.5px solid var(--ink);">
+    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; white-space: nowrap;">TK—823</a>
+    <div style="display: flex; gap: 26px; align-items: center;">
+      <a href="about.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">ABOUT</a>
+      <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">PROJECTS</a>
+      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">BLOG</a>
+      <a href="contact.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent-ink); background: var(--accent); padding: 6px 14px; text-decoration: none;" style-hover="background: var(--ink); color: var(--bg);">CONTACT</a>
+      <span onClick="{{ toggleTheme }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 5px 11px; cursor: pointer; user-select: none;" style-hover="background: var(--ink); color: var(--bg);">{{ themeLabel }}</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="padding: 80px 56px 64px; display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap;">
+    <div style="min-width: 0;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 20px;">// BACKEND — DEVOPS — DATA ENGINEER</div>
+    <h1 style="margin: 0; font-size: 124px; line-height: 0.96; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">TAEHYEON<br><span style="color: transparent; -webkit-text-stroke: 2px var(--ink);">KIM</span><span style="color: var(--accent);">.</span></h1>
+    <p style="margin: 34px 0 0; font-size: 16.5px; line-height: 1.78; color: var(--muted); max-width: 520px; text-wrap: pretty;">
+      NAVER Cloud MLOps Data 팀에서 Kubernetes 위에
+      GPU·데이터 파이프라인 플랫폼을 짓습니다.
+      단단한 시스템과 솔직한 글을 좋아합니다.
+    </p>
+    <div style="display: flex; gap: 12px; margin-top: 36px;">
+      <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--bg); background: var(--ink); border: 1.5px solid var(--ink); padding: 12px 22px; text-decoration: none;" style-hover="background: var(--accent); border-color: var(--accent); color: var(--accent-ink);">VIEW PROJECTS →</a>
+      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 12px 22px; text-decoration: none;" style-hover="background: var(--ink); color: var(--bg);">READ BLOG</a>
+    </div>
+    </div>
+    <!-- annotation card -->
+    <a href="projects.html" style="flex-shrink: 0; margin-top: 24px; border: 1.5px solid var(--ink); background: var(--card); padding: 18px 22px; display: flex; flex-direction: column; gap: 7px; transform: rotate(1.5deg); text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: rotate(0deg) translate(-2px, -2px); box-shadow: 5px 5px 0 var(--accent);">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: var(--faint);">FIG.01 — CURRENT BUILD</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; font-weight: 700; color: var(--ink);">MLXP Data Manager</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">dataset quota · metering · k8s</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent);">● in production</span>
+    </a>
+  </div>
+
+  <!-- TICKER -->
+  <div style="border-top: 1.5px solid var(--ink); background: var(--ink); padding: 13px 0; overflow: hidden;">{{ ticker }}</div>
+
+  <!-- SELECTED WORK -->
+  <div style="padding: 72px 56px 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding-bottom: 12px; margin-bottom: 28px;">
+      <span style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink);">SELECTED WORK</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">FIG. 01 — 03</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 18px;">
+      <!-- MLXP big card -->
+      <a href="projects.html" style="grid-row: span 2; border: 1.5px solid var(--ink); background: var(--card); padding: 30px 32px; display: flex; flex-direction: column; gap: 16px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
+        <div style="display: flex; justify-content: space-between;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent);">FIG.01 — FEATURED · NAVER CLOUD</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--faint);">2025.07 — NOW</span>
+        </div>
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1;">MLXP<br>Data Manager</span>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--muted); text-wrap: pretty;">
+          ML 워크로드를 위한 HuggingFace 인터페이스의 데이터셋 관리 시스템.
+          테라바이트 단위 데이터셋을 다루는 이 플랫폼에서
+          워크스페이스별 쿼터 관리와 사용량 미터링 로직 개발을 주도했습니다.
+        </p>
+        <div style="display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--ink); border: 1px solid var(--ink); padding: 4px 11px;">KUBERNETES</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--ink); border: 1px solid var(--ink); padding: 4px 11px;">KOTLIN</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--ink); border: 1px solid var(--ink); padding: 4px 11px;">SPRING</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--ink); border: 1px solid var(--ink); padding: 4px 11px;">GO</span>
+        </div>
+      </a>
+      <!-- open source card -->
+      <a href="https://github.com/altair823/image_compressor" target="_blank" style="border: 1.5px solid var(--ink); background: var(--card); padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">FIG.02 — OPEN SOURCE</span>
+        <span style="font-size: 20px; font-weight: 700; color: var(--ink);">image_compressor</span>
+        <span style="font-size: 13.5px; line-height: 1.65; color: var(--muted);">Rust로 만든 이미지 압축 라이브러리. crates.io 배포.</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--faint);">RUST · ★ 9 · github ↗</span>
+      </a>
+      <!-- homelab card -->
+      <a href="about.html" style="border: 1.5px solid var(--ink); background: var(--card); padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">FIG.03 — HOMELAB</span>
+        <span style="font-size: 20px; font-weight: 700; color: var(--ink);">The Homelab</span>
+        <span style="font-size: 13.5px; line-height: 1.65; color: var(--muted);">Proxmox VM 위의 HA Kubernetes 클러스터. Longhorn · ArgoCD · Grafana로 운영합니다.</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--faint);">K8S · PROXMOX · 24/7</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- RECENT LOGS -->
+  <div style="padding: 56px 56px 80px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding-bottom: 12px;">
+      <span style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink);">RECENT LOGS</span>
+      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none;" style-hover="color: var(--ink);">ALL POSTS →</a>
+    </div>
+    <sc-for list="{{ recentPosts }}" as="post" hint-placeholder-count="3">
+      <a href="{{ post.url }}" target="_blank" style="display: grid; grid-template-columns: 110px 1fr auto; align-items: baseline; gap: 24px; padding: 22px 8px; border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">{{ post.date }}</span>
+        <span style="font-size: 17px; font-weight: 600; color: var(--ink);">{{ post.title }}</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: {{ post.tagColor }};">{{ post.tag }}</span>
+      </a>
+    </sc-for>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top: auto; border-top: 1.5px solid var(--ink); padding: 20px 56px; display: flex; justify-content: space-between; align-items: center;">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--faint);">© 2026 TAEHYEON KIM — BUILT ON THE GRID</span>
+    <div style="display: flex; gap: 20px;">
+      <a href="https://github.com/altair823" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">GITHUB ↗</a>
+      <a href="https://www.linkedin.com/in/tae-hyeon-kim-603970301/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">LINKEDIN ↗</a>
+      <a href="https://altair823.tistory.com/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">TISTORY ↗</a>
+      <a href="{{ emailHref }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">MAIL ↗</a>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: (typeof localStorage !== 'undefined' && localStorage.getItem('tk-theme')) || 'light', livePosts: null };
+
+  componentDidMount() {
+    this.applyTheme(this.state.theme);
+    this.loadFeed();
+  }
+
+  tagFor(category) {
+    const last = (category || '').split('/').pop().trim();
+    const map = { '서버': 'SERVER', '러스트': 'RUST', '알고리즘': 'ALGO', '자료구조': 'DATA', '파이썬': 'PYTHON', '라즈베리파이': 'RPI', '임베디드': 'EMBEDDED', '리눅스': 'LINUX', '책': 'BOOK', '게임 제작': 'GAMEDEV', '기타': 'ESSAY', '취준': 'CAREER', '리뷰': 'REVIEW', '미디어': 'MEDIA' };
+    return map[last] || (last ? last.toUpperCase() : 'LOG');
+  }
+
+  async loadFeed() {
+    const rssUrl = 'https://altair823.tistory.com/rss';
+    const proxies = [
+      'https://api.allorigins.win/raw?url=' + encodeURIComponent(rssUrl),
+      'https://corsproxy.io/?url=' + encodeURIComponent(rssUrl)
+    ];
+    for (const proxyUrl of proxies) {
+      try {
+        const res = await fetch(proxyUrl);
+        if (!res.ok) continue;
+        const text = await res.text();
+        const doc = new DOMParser().parseFromString(text, 'text/xml');
+        const items = Array.from(doc.querySelectorAll('item'));
+        if (!items.length) continue;
+        const posts = items.slice(0, 3).map((it) => {
+          const get = (sel) => { const el = it.querySelector(sel); return el ? el.textContent : ''; };
+          const d = new Date(get('pubDate'));
+          const tag = this.tagFor(get('category'));
+          return {
+            date: isNaN(d) ? '' : d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0'),
+            title: get('title'),
+            tag: tag,
+            tagColor: tag === 'ESSAY' ? 'var(--accent)' : 'var(--faint)',
+            url: get('link')
+          };
+        });
+        this.setState({ livePosts: posts });
+        return;
+      } catch (e) { /* try next proxy */ }
+    }
+  }
+
+  applyTheme(t) {
+    const light = { '--bg': '#f4f3ef', '--grid': 'rgba(22,24,29,0.05)', '--ink': '#16181d', '--muted': '#55534a', '--faint': '#8a887e', '--hairline': '#dbd9cf', '--card': '#fbfaf7', '--accent': '#e8490f', '--accent-ink': '#f4f3ef' };
+    const dark = { '--bg': '#15161b', '--grid': 'rgba(240,239,233,0.05)', '--ink': '#f0efe9', '--muted': '#a3a196', '--faint': '#6f6d64', '--hairline': '#2e3038', '--card': '#1c1e25', '--accent': '#ff5a1f', '--accent-ink': '#15161b' };
+    const vars = t === 'dark' ? dark : light;
+    for (const k in vars) document.body.style.setProperty(k, vars[k]);
+  }
+
+  toggle = () => {
+    const t = this.state.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('tk-theme', t); } catch (e) {}
+    this.applyTheme(t);
+    this.setState({ theme: t });
+  };
+
+  renderVals() {
+    const items = ['KUBERNETES', 'KOTLIN', 'SPRING', 'GO', 'RUST', 'MLOPS'];
+    // Each half holds the sequence 3x so one half is always wider than any viewport;
+    // translateX(-50%) then loops with no visible gap.
+    const seq = [].concat(items, items, items);
+    const half = (keyPrefix) => React.createElement(
+      'span',
+      { key: keyPrefix, style: { display: 'inline-flex', flexShrink: 0 } },
+      seq.flatMap((t, i) => ([
+        React.createElement('span', { key: i + 't', style: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12.5px', letterSpacing: '0.1em', color: t === 'MLOPS' ? 'var(--accent)' : 'var(--bg)', marginRight: '28px', whiteSpace: 'nowrap' } }, t),
+        React.createElement('span', { key: i + 's', style: { fontFamily: "'JetBrains Mono', monospace", fontSize: '12.5px', color: 'var(--faint)', marginRight: '28px' } }, '✦')
+      ]))
+    );
+    const fade = 'linear-gradient(90deg, transparent, black 5%, black 95%, transparent)';
+    const ticker = React.createElement(
+      'div',
+      { style: { overflow: 'hidden', maskImage: fade, WebkitMaskImage: fade } },
+      React.createElement(
+        'div',
+        { style: { display: 'flex', width: 'max-content', animation: 'tk-marquee 60s linear infinite' } },
+        [half('a'), half('b')]
+      )
+    );
+    const email = ['thkim0823', '@', 'gmail', '.com'].join('');
+    const fallbackPosts = [
+      { date: '2026.04', title: 'Lost in AI', tag: 'ESSAY', tagColor: 'var(--accent)', url: 'https://altair823.tistory.com/entry/Lost-in-AI' },
+      { date: '2026.03', title: 'Longhorn, 그 삽질의 기록', tag: 'SERVER', tagColor: 'var(--faint)', url: 'https://altair823.tistory.com/entry/Longhorn-%EA%B7%B8-%EC%82%BD%EC%A7%88%EC%9D%98-%EA%B8%B0%EB%A1%9D' },
+      { date: '2026.01', title: 'HA 중독자의 HA 달성기', tag: 'SERVER', tagColor: 'var(--faint)', url: 'https://altair823.tistory.com/entry/HA-%EC%A4%91%EB%8F%85%EC%9E%90%EC%9D%98-HA-%EB%8B%AC%EC%84%B1%EA%B8%B0' }
+    ];
+    return {
+      ticker: ticker,
+      recentPosts: this.state.livePosts || fallbackPosts,
+      emailHref: 'mailto:' + email,
+      toggleTheme: this.toggle,
+      themeLabel: this.state.theme === 'dark' ? '◐ LIGHT' : '◑ DARK'
+    };
+  }
+}
+</script>
+</body>
+</html>

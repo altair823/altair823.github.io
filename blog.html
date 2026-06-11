@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Taehyeon Kim — Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; -webkit-font-smoothing: antialiased; background: var(--bg);
+    --bg: #f4f3ef; --grid: rgba(22,24,29,0.05); --ink: #16181d; --muted: #55534a; --faint: #8a887e;
+    --hairline: #dbd9cf; --card: #fbfaf7; --accent: #e8490f; --accent-ink: #f4f3ef; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+</style>
+</helmet>
+
+<div data-screen-label="Blog" style="min-height: 100vh; background: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 56px 56px; font-family: 'Pretendard Variable', Pretendard, sans-serif; color: var(--ink); display: flex; flex-direction: column;">
+
+  <!-- NAV -->
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 22px 56px; border-bottom: 1.5px solid var(--ink);">
+    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; white-space: nowrap;">TK—823</a>
+    <div style="display: flex; gap: 26px; align-items: center;">
+      <a href="about.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">ABOUT</a>
+      <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">PROJECTS</a>
+      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px;">BLOG</a>
+      <a href="contact.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent-ink); background: var(--accent); padding: 6px 14px; text-decoration: none;" style-hover="background: var(--ink); color: var(--bg);">CONTACT</a>
+      <span onClick="{{ toggleTheme }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 5px 11px; cursor: pointer; user-select: none;" style-hover="background: var(--ink); color: var(--bg);">{{ themeLabel }}</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="padding: 72px 56px 56px; border-bottom: 1.5px solid var(--ink); display: flex; justify-content: space-between; align-items: flex-end;">
+    <div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 16px;">// tail -f altair823.tistory.com</div>
+      <h1 style="margin: 0; font-size: 96px; line-height: 0.96; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">LOGS<span style="color: var(--accent);">.</span></h1>
+    </div>
+    <a href="https://altair823.tistory.com/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--bg); background: var(--ink); border: 1.5px solid var(--ink); padding: 12px 22px; text-decoration: none;" style-hover="background: var(--accent); border-color: var(--accent); color: var(--accent-ink);">OPEN TISTORY ↗</a>
+  </div>
+
+  <!-- POST LIST -->
+  <div style="padding: 40px 56px 80px;">
+    <sc-for list="{{ posts }}" as="post" hint-placeholder-count="6">
+      <a href="{{ post.url }}" target="_blank" style="display: grid; grid-template-columns: 64px 110px 1fr auto; align-items: baseline; gap: 24px; padding: 26px 12px; border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">{{ post.num }}</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">{{ post.date }}</span>
+        <span style="font-size: 19px; font-weight: 650; color: var(--ink);">{{ post.title }}</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: {{ post.tagColor }};">{{ post.tag }}</span>
+      </a>
+    </sc-for>
+    <div style="padding: 32px 12px 0; display: flex; justify-content: space-between; align-items: baseline;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">{{ feedStatus }}</span>
+      <a href="https://altair823.tistory.com/category" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none;" style-hover="color: var(--ink);">FULL ARCHIVE →</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top: auto; border-top: 1.5px solid var(--ink); padding: 20px 56px; display: flex; justify-content: space-between; align-items: center;">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--faint);">© 2026 TAEHYEON KIM — BUILT ON THE GRID</span>
+    <div style="display: flex; gap: 20px;">
+      <a href="https://github.com/altair823" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">GITHUB ↗</a>
+      <a href="https://www.linkedin.com/in/tae-hyeon-kim-603970301/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">LINKEDIN ↗</a>
+      <a href="https://altair823.tistory.com/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">TISTORY ↗</a>
+      <a href="{{ emailHref }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">MAIL ↗</a>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    theme: (typeof localStorage !== 'undefined' && localStorage.getItem('tk-theme')) || 'light',
+    livePosts: null,
+    feedStatus: '○ CACHED LIST — 최신 글은 티스토리에서 확인'
+  };
+
+  componentDidMount() {
+    this.applyTheme(this.state.theme);
+    this.loadFeed();
+  }
+
+  tagFor(category) {
+    const last = (category || '').split('/').pop().trim();
+    const map = { '서버': 'SERVER', '러스트': 'RUST', '알고리즘': 'ALGO', '자료구조': 'DATA', '파이썬': 'PYTHON', '라즈베리파이': 'RPI', '임베디드': 'EMBEDDED', '리눅스': 'LINUX', '책': 'BOOK', '게임 제작': 'GAMEDEV', '기타': 'ESSAY', '취준': 'CAREER', '리뷰': 'REVIEW', '미디어': 'MEDIA' };
+    return map[last] || (last ? last.toUpperCase() : 'LOG');
+  }
+
+  async loadFeed() {
+    const rssUrl = 'https://altair823.tistory.com/rss';
+    const proxies = [
+      'https://api.allorigins.win/raw?url=' + encodeURIComponent(rssUrl),
+      'https://corsproxy.io/?url=' + encodeURIComponent(rssUrl)
+    ];
+    for (const proxyUrl of proxies) {
+      try {
+        const res = await fetch(proxyUrl);
+        if (!res.ok) continue;
+        const text = await res.text();
+        const doc = new DOMParser().parseFromString(text, 'text/xml');
+        const items = Array.from(doc.querySelectorAll('item'));
+        if (!items.length) continue;
+        const posts = items.slice(0, 12).map((it, i) => {
+          const get = (sel) => { const el = it.querySelector(sel); return el ? el.textContent : ''; };
+          const d = new Date(get('pubDate'));
+          const date = isNaN(d) ? '' : d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0');
+          const tag = this.tagFor(get('category'));
+          return {
+            num: String(Math.min(items.length, 12) - i).padStart(2, '0'),
+            date: date,
+            title: get('title'),
+            tag: tag,
+            tagColor: tag === 'ESSAY' ? 'var(--accent)' : 'var(--faint)',
+            url: get('link')
+          };
+        });
+        this.setState({ livePosts: posts, feedStatus: '● LIVE — altair823.tistory.com/rss 에서 자동 동기화' });
+        return;
+      } catch (e) { /* try next proxy */ }
+    }
+  }
+
+  applyTheme(t) {
+    const light = { '--bg': '#f4f3ef', '--grid': 'rgba(22,24,29,0.05)', '--ink': '#16181d', '--muted': '#55534a', '--faint': '#8a887e', '--hairline': '#dbd9cf', '--card': '#fbfaf7', '--accent': '#e8490f', '--accent-ink': '#f4f3ef' };
+    const dark = { '--bg': '#15161b', '--grid': 'rgba(240,239,233,0.05)', '--ink': '#f0efe9', '--muted': '#a3a196', '--faint': '#6f6d64', '--hairline': '#2e3038', '--card': '#1c1e25', '--accent': '#ff5a1f', '--accent-ink': '#15161b' };
+    const vars = t === 'dark' ? dark : light;
+    for (const k in vars) document.body.style.setProperty(k, vars[k]);
+  }
+
+  toggle = () => {
+    const t = this.state.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('tk-theme', t); } catch (e) {}
+    this.applyTheme(t);
+    this.setState({ theme: t });
+  };
+
+  renderVals() {
+    const posts = [
+      { num: '06', date: '2026.04', title: 'Lost in AI', tag: 'ESSAY', tagColor: 'var(--accent)', url: 'https://altair823.tistory.com/entry/Lost-in-AI' },
+      { num: '05', date: '2026.03', title: 'Longhorn, 그 삽질의 기록', tag: 'SERVER', tagColor: 'var(--faint)', url: 'https://altair823.tistory.com/entry/Longhorn-%EA%B7%B8-%EC%82%BD%EC%A7%88%EC%9D%98-%EA%B8%B0%EB%A1%9D' },
+      { num: '04', date: '2026.01', title: 'HA 중독자의 HA 달성기', tag: 'SERVER', tagColor: 'var(--faint)', url: 'https://altair823.tistory.com/entry/HA-%EC%A4%91%EB%8F%85%EC%9E%90%EC%9D%98-HA-%EB%8B%AC%EC%84%B1%EA%B8%B0' },
+      { num: '03', date: '2025.12', title: 'K8s 와 VM, 그리고 Proxmox', tag: 'SERVER', tagColor: 'var(--faint)', url: 'https://altair823.tistory.com/entry/K8s-%EC%99%80-VM-%EA%B7%B8%EB%A6%AC%EA%B3%A0-Proxmox' },
+      { num: '02', date: '2025.12', title: 'Rocky Linux (or RHEL 계열) VM로 k8s 클러스터 구성하기', tag: 'SERVER', tagColor: 'var(--faint)', url: 'https://altair823.tistory.com/entry/Rocky-Linux-or-RHEL-%EA%B3%84%EC%97%B4-VM%EB%A1%9C-k8s-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0' },
+      { num: '01', date: '2025.11', title: 'LTO6 드라이브, 백업, 그리고 아카이빙에 관해서', tag: 'SERVER', tagColor: 'var(--faint)', url: 'https://altair823.tistory.com/entry/LTO6-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C-%EB%B0%B1%EC%97%85-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B9%99%EC%97%90-%EA%B4%80%ED%95%B4%EC%84%9C' }
+    ];
+    return {
+      posts: this.state.livePosts || posts,
+      feedStatus: this.state.feedStatus,
+      emailHref: 'mailto:' + ['thkim0823', '@', 'gmail', '.com'].join(''),
+      toggleTheme: this.toggle,
+      themeLabel: this.state.theme === 'dark' ? '◐ LIGHT' : '◑ DARK'
+    };
+  }
+}
+</script>
+</body>
+</html>

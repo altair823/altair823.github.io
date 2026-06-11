@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Taehyeon Kim — About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; -webkit-font-smoothing: antialiased; background: var(--bg);
+    --bg: #f4f3ef; --grid: rgba(22,24,29,0.05); --ink: #16181d; --muted: #55534a; --faint: #8a887e;
+    --hairline: #dbd9cf; --card: #fbfaf7; --accent: #e8490f; --accent-ink: #f4f3ef; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+</style>
+</helmet>
+
+<div data-screen-label="About" style="min-height: 100vh; background: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 56px 56px; font-family: 'Pretendard Variable', Pretendard, sans-serif; color: var(--ink); display: flex; flex-direction: column;">
+
+  <!-- NAV -->
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 22px 56px; border-bottom: 1.5px solid var(--ink);">
+    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; white-space: nowrap;">TK—823</a>
+    <div style="display: flex; gap: 26px; align-items: center;">
+      <a href="about.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px;">ABOUT</a>
+      <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">PROJECTS</a>
+      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">BLOG</a>
+      <a href="contact.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent-ink); background: var(--accent); padding: 6px 14px; text-decoration: none;" style-hover="background: var(--ink); color: var(--bg);">CONTACT</a>
+      <span onClick="{{ toggleTheme }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 5px 11px; cursor: pointer; user-select: none;" style-hover="background: var(--ink); color: var(--bg);">{{ themeLabel }}</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="padding: 72px 56px 56px; border-bottom: 1.5px solid var(--ink);">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 16px;">// WHO IS BEHIND THE GRID</div>
+    <h1 style="margin: 0; font-size: 96px; line-height: 0.96; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">ABOUT<span style="color: var(--accent);">.</span></h1>
+  </div>
+
+  <!-- INTRO + SPEC -->
+  <div style="display: grid; grid-template-columns: 1.5fr 1fr; border-bottom: 1.5px solid var(--ink);">
+    <div style="padding: 56px; border-right: 1.5px solid var(--ink); display: flex; flex-direction: column; gap: 20px;">
+      <p style="margin: 0; font-size: 17px; line-height: 1.85; color: var(--ink); text-wrap: pretty;">
+        백엔드와 인프라를 만드는 엔지니어 김태현입니다.
+        NAVER Cloud MLOps Data 팀에서 사내 GPU·데이터 파이프라인 플랫폼인
+        ML expert Platform의 Data Manager를 개발하고 있습니다.
+      </p>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.85; color: var(--muted); text-wrap: pretty;">
+        Kubernetes 위에서 Kotlin과 Spring으로 서비스를 짓고, Go와 Rust로 더 낮은 곳을 파고듭니다.
+        퇴근 후에는 집의 클러스터를 들여다봅니다 — 회사에서는 베어메탈 k8s의 노드 로그를,
+        집에서는 Proxmox VM 위 클러스터의 Grafana를 봅니다. 가끔 퇴근한 건지 헷갈립니다.
+      </p>
+      <p style="margin: 0; font-size: 15.5px; line-height: 1.85; color: var(--muted); text-wrap: pretty;">
+        심리학과 컴퓨터공학을 함께 공부했습니다. 시스템이 어떻게 실패하는지만큼,
+        사람이 시스템을 어떻게 이해하는지에도 관심이 많습니다.
+        그래서 장애가 스스로 말하게 하는 인프라, 읽는 사람을 배려하는 코드와 글을 지향합니다.
+      </p>
+    </div>
+    <!-- spec sheet -->
+    <div style="padding: 56px; display: flex; flex-direction: column; justify-content: center;">
+      <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px dashed var(--hairline);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">NAME</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--ink);">Kim Tae-hyeon · altair823</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px dashed var(--hairline);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">ROLE</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--ink);">Backend · DevOps · Data</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px dashed var(--hairline);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">TEAM</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--ink);">NAVER Cloud / MLOps Data</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px dashed var(--hairline);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">EDU</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--ink);">중앙대 심리학 × 컴퓨터공학</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 14px 0;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">STATUS</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--accent);">● shipping MLXP</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div style="padding: 64px 56px; border-bottom: 1.5px solid var(--ink);">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding-bottom: 12px; margin-bottom: 8px;">
+      <span style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink);">TIMELINE</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">FIG.04</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 180px 1fr; gap: 0;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--accent); padding: 28px 0; border-bottom: 1px solid var(--hairline);">2025.07 — NOW</div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 18px; font-weight: 700; color: var(--ink);">NAVER Cloud — MLOps Data 팀</span>
+        <span style="font-size: 14.5px; line-height: 1.7; color: var(--muted); max-width: 640px;">
+          ML expert Platform(MLXP) Data Manager 백엔드 개발.
+          워크스페이스별 데이터셋 쿼터 관리 로직 개발을 주도하고,
+          사용자·데이터셋별 스토리지 사용량 추적과 쿼터 미터링으로
+          이용 패턴 분석·어뷰징 방지를 구현.
+        </span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--faint);">KUBERNETES · KOTLIN · SPRING · GO</span>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--faint); padding: 28px 0; border-bottom: 1px solid var(--hairline);">SIDE · 24/7</div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 18px; font-weight: 700; color: var(--ink);">The Homelab — 온프렘 클러스터 운영</span>
+        <span style="font-size: 14.5px; line-height: 1.7; color: var(--muted); max-width: 640px;">
+          Proxmox VM 위에 HA Kubernetes 클러스터를 직접 구축·운영.
+          Longhorn 분산 스토리지, ArgoCD GitOps, Grafana 모니터링, LTO 테이프 아카이빙까지.
+          삽질의 기록은 전부 블로그에 남깁니다.
+        </span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--faint);">PROXMOX · K8S · LONGHORN · ARGOCD · GRAFANA</span>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--faint); padding: 28px 0; border-bottom: 1px solid var(--hairline);">2024.03 — 2024.12</div>
+      <div style="padding: 28px 0; border-bottom: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 18px; font-weight: 700; color: var(--ink);">소프트웨어 마에스트로 15기 — 팀 int*p 팀장</span>
+        <span style="font-size: 14.5px; line-height: 1.7; color: var(--muted); max-width: 640px;">
+          빈칸 공부법 학습 서비스 '빈채'를 기획부터 출시까지 수행.
+          Spring Boot 백엔드와 AWS 인프라를 담당하고, 핵심 엔진인
+          단어 가중치 서버(KeywordSmith)를 단독 개발.
+        </span>
+        <div style="display: flex; gap: 18px; align-items: baseline;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--faint);">KOTLIN · SPRING · PYTHON · AWS · BM25</span>
+          <a href="https://altair823.tistory.com/entry/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EB%A7%88%EC%97%90%EC%8A%A4%ED%8A%B8%EB%A1%9C-15%EA%B8%B0%EB%A5%BC-%EB%A7%88%EB%AC%B4%EB%A6%AC%ED%95%98%EB%A9%B0" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none;" style-hover="color: var(--ink);">15기 회고 ↗</a>
+        </div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--faint); padding: 28px 0;">2017 — 2024.02</div>
+      <div style="padding: 28px 0; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 18px; font-weight: 700; color: var(--ink);">중앙대학교 — 심리학과 · 컴퓨터공학과 복수전공</span>
+        <span style="font-size: 14.5px; line-height: 1.7; color: var(--muted); max-width: 640px;">
+          Rust 오픈소스 라이브러리 개발, 임베디드·라즈베리파이 프로젝트 등
+          밑바닥부터 만들어보는 것들을 좋아했습니다.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STACK -->
+  <div style="padding: 64px 56px 80px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding-bottom: 12px; margin-bottom: 28px;">
+      <span style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink);">STACK</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">FIG.05 — DAILY DRIVERS</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+      <div style="border: 1.5px solid var(--ink); background: var(--card); padding: 24px 26px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent);">01 — LANGUAGES</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Kotlin</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Go</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Rust</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Python</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); border: 1px dashed var(--hairline); padding: 5px 12px;">Java</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); border: 1px dashed var(--hairline); padding: 5px 12px;">C/C++</span>
+        </div>
+      </div>
+      <div style="border: 1.5px solid var(--ink); background: var(--card); padding: 24px 26px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent);">02 — PLATFORM</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Kubernetes</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Docker</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Proxmox</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); border: 1px dashed var(--hairline); padding: 5px 12px;">AWS</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); border: 1px dashed var(--hairline); padding: 5px 12px;">Linux</span>
+        </div>
+      </div>
+      <div style="border: 1.5px solid var(--ink); background: var(--card); padding: 24px 26px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent);">03 — OPS & DATA</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Spring Boot</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">ArgoCD</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Grafana</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); border: 1px solid var(--ink); padding: 5px 12px;">Longhorn</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); border: 1px dashed var(--hairline); padding: 5px 12px;">HF Datasets</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top: auto; border-top: 1.5px solid var(--ink); padding: 20px 56px; display: flex; justify-content: space-between; align-items: center;">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--faint);">© 2026 TAEHYEON KIM — BUILT ON THE GRID</span>
+    <div style="display: flex; gap: 20px;">
+      <a href="https://github.com/altair823" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">GITHUB ↗</a>
+      <a href="https://www.linkedin.com/in/tae-hyeon-kim-603970301/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">LINKEDIN ↗</a>
+      <a href="https://altair823.tistory.com/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">TISTORY ↗</a>
+      <a href="{{ emailHref }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">MAIL ↗</a>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: (typeof localStorage !== 'undefined' && localStorage.getItem('tk-theme')) || 'light' };
+
+  componentDidMount() { this.applyTheme(this.state.theme); }
+
+  applyTheme(t) {
+    const light = { '--bg': '#f4f3ef', '--grid': 'rgba(22,24,29,0.05)', '--ink': '#16181d', '--muted': '#55534a', '--faint': '#8a887e', '--hairline': '#dbd9cf', '--card': '#fbfaf7', '--accent': '#e8490f', '--accent-ink': '#f4f3ef' };
+    const dark = { '--bg': '#15161b', '--grid': 'rgba(240,239,233,0.05)', '--ink': '#f0efe9', '--muted': '#a3a196', '--faint': '#6f6d64', '--hairline': '#2e3038', '--card': '#1c1e25', '--accent': '#ff5a1f', '--accent-ink': '#15161b' };
+    const vars = t === 'dark' ? dark : light;
+    for (const k in vars) document.body.style.setProperty(k, vars[k]);
+  }
+
+  toggle = () => {
+    const t = this.state.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('tk-theme', t); } catch (e) {}
+    this.applyTheme(t);
+    this.setState({ theme: t });
+  };
+
+  renderVals() {
+    return {
+      emailHref: 'mailto:' + ['thkim0823', '@', 'gmail', '.com'].join(''),
+      toggleTheme: this.toggle,
+      themeLabel: this.state.theme === 'dark' ? '◐ LIGHT' : '◑ DARK'
+    };
+  }
+}
+</script>
+</body>
+</html>
