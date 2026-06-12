@@ -15,7 +15,13 @@
 <style>
   body { margin: 0; -webkit-font-smoothing: antialiased; background: var(--bg);
     --bg: #f4f3ef; --grid: rgba(22,24,29,0.05); --ink: #16181d; --muted: #55534a; --faint: #8a887e;
-    --hairline: #dbd9cf; --card: #fbfaf7; --accent: #e8490f; --accent-ink: #f4f3ef; }
+    --hairline: #dbd9cf; --card: #fbfaf7; --accent: #e8490f; --accent-ink: #f4f3ef;
+    --px: 56px; --cols-work: 1.5fr 1fr; --row-span: span 2;
+    --log-cols: 110px 1fr auto; --log-areas: "d t g"; }
+  @media (max-width: 760px) {
+    body { --px: 20px; --cols-work: 1fr; --row-span: auto;
+      --log-cols: 1fr auto; --log-areas: "d g" "t t"; }
+  }
   @keyframes tk-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   ::selection { background: var(--accent); color: var(--accent-ink); }
 </style>
@@ -24,34 +30,34 @@
 <div data-screen-label="Home" style="min-height: 100vh; background: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 56px 56px; font-family: 'Pretendard Variable', Pretendard, sans-serif; color: var(--ink); display: flex; flex-direction: column;">
 
   <!-- NAV -->
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 22px 56px; border-bottom: 1.5px solid var(--ink);">
-    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; white-space: nowrap;">TK—823</a>
-    <div style="display: flex; gap: 26px; align-items: center;">
-      <a href="about.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">ABOUT</a>
-      <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">PROJECTS</a>
-      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">BLOG</a>
-      <a href="contact.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent-ink); background: var(--accent); padding: 6px 14px; text-decoration: none;" style-hover="background: var(--ink); color: var(--bg);">CONTACT</a>
-      <span onClick="{{ toggleTheme }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 5px 11px; cursor: pointer; user-select: none;" style-hover="background: var(--ink); color: var(--bg);">{{ themeLabel }}</span>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px 18px; padding: 14px var(--px); border-bottom: 1.5px solid var(--ink);">
+    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; white-space: nowrap; padding: 8px 0;">TK—823</a>
+    <div style="display: flex; gap: 8px clamp(14px, 2.5vw, 26px); align-items: center; flex-wrap: wrap;">
+      <a href="about.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none; padding: 8px 0;" style-hover="color: var(--accent);">ABOUT</a>
+      <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none; padding: 8px 0;" style-hover="color: var(--accent);">PROJECTS</a>
+      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none; padding: 8px 0;" style-hover="color: var(--accent);">BLOG</a>
+      <a href="contact.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent-ink); background: var(--accent); padding: 8px 14px; text-decoration: none;" style-hover="background: var(--ink); color: var(--bg);">CONTACT</a>
+      <span onClick="{{ toggleTheme }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 7px 11px; cursor: pointer; user-select: none;" style-hover="background: var(--ink); color: var(--bg);">{{ themeLabel }}</span>
     </div>
   </div>
 
   <!-- HERO -->
-  <div style="padding: 80px 56px 64px; display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; flex-wrap: wrap;">
+  <div style="padding: clamp(48px, 9vw, 80px) var(--px) clamp(40px, 7vw, 64px); display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
     <div style="min-width: 0;">
     <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 20px;">// BACKEND — DEVOPS — DATA ENGINEER</div>
-    <h1 style="margin: 0; font-size: 124px; line-height: 0.96; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">TAEHYEON<br><span style="color: transparent; -webkit-text-stroke: 2px var(--ink);">KIM</span><span style="color: var(--accent);">.</span></h1>
+    <h1 style="margin: 0; font-size: clamp(54px, 14vw, 124px); line-height: 0.96; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">TAEHYEON<br><span style="color: transparent; -webkit-text-stroke: 2px var(--ink);">KIM</span><span style="color: var(--accent);">.</span></h1>
     <p style="margin: 34px 0 0; font-size: 16.5px; line-height: 1.78; color: var(--muted); max-width: 520px; text-wrap: pretty;">
       NAVER Cloud MLOps Data 팀에서 Kubernetes 위에
       GPU·데이터 파이프라인 플랫폼을 짓습니다.
       단단한 시스템과 솔직한 글을 좋아합니다.
     </p>
-    <div style="display: flex; gap: 12px; margin-top: 36px;">
+    <div style="display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap;">
       <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--bg); background: var(--ink); border: 1.5px solid var(--ink); padding: 12px 22px; text-decoration: none;" style-hover="background: var(--accent); border-color: var(--accent); color: var(--accent-ink);">VIEW PROJECTS →</a>
       <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 12px 22px; text-decoration: none;" style-hover="background: var(--ink); color: var(--bg);">READ BLOG</a>
     </div>
     </div>
     <!-- annotation card -->
-    <a href="projects.html" style="flex-shrink: 0; margin-top: 24px; border: 1.5px solid var(--ink); background: var(--card); padding: 18px 22px; display: flex; flex-direction: column; gap: 7px; transform: rotate(1.5deg); text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: rotate(0deg) translate(-2px, -2px); box-shadow: 5px 5px 0 var(--accent);">
+    <a href="projects.html" style="flex-shrink: 0; max-width: 100%; margin-top: 24px; border: 1.5px solid var(--ink); background: var(--card); padding: 18px 22px; display: flex; flex-direction: column; gap: 7px; transform: rotate(1.5deg); text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: rotate(0deg) translate(-2px, -2px); box-shadow: 5px 5px 0 var(--accent);">
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: var(--faint);">FIG.01 — CURRENT BUILD</span>
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; font-weight: 700; color: var(--ink);">MLXP Data Manager</span>
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted);">dataset quota · metering · k8s</span>
@@ -63,19 +69,19 @@
   <div style="border-top: 1.5px solid var(--ink); background: var(--ink); padding: 13px 0; overflow: hidden;">{{ ticker }}</div>
 
   <!-- SELECTED WORK -->
-  <div style="padding: 72px 56px 24px;">
-    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding-bottom: 12px; margin-bottom: 28px;">
+  <div style="padding: clamp(48px, 9vw, 72px) var(--px) 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px 16px; flex-wrap: wrap; border-bottom: 1.5px solid var(--ink); padding-bottom: 12px; margin-bottom: 28px;">
       <span style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink);">SELECTED WORK</span>
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">FIG. 01 — 03</span>
     </div>
-    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 18px;">
+    <div style="display: grid; grid-template-columns: var(--cols-work); gap: 18px;">
       <!-- MLXP big card -->
-      <a href="projects.html" style="grid-row: span 2; border: 1.5px solid var(--ink); background: var(--card); padding: 30px 32px; display: flex; flex-direction: column; gap: 16px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
-        <div style="display: flex; justify-content: space-between;">
+      <a href="projects.html" style="grid-row: var(--row-span); border: 1.5px solid var(--ink); background: var(--card); padding: clamp(22px, 4vw, 30px) clamp(20px, 4vw, 32px); display: flex; flex-direction: column; gap: 16px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
+        <div style="display: flex; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent);">FIG.01 — FEATURED · NAVER CLOUD</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--faint);">2025.07 — NOW</span>
         </div>
-        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1;">MLXP<br>Data Manager</span>
+        <span style="font-size: clamp(28px, 6vw, 34px); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1;">MLXP<br>Data Manager</span>
         <p style="margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--muted); text-wrap: pretty;">
           ML 워크로드를 위한 HuggingFace 인터페이스의 데이터셋 관리 시스템.
           테라바이트 단위 데이터셋을 다루는 이 플랫폼에서
@@ -89,14 +95,14 @@
         </div>
       </a>
       <!-- open source card -->
-      <a href="https://github.com/altair823/image_compressor" target="_blank" style="border: 1.5px solid var(--ink); background: var(--card); padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
+      <a href="https://github.com/altair823/image_compressor" target="_blank" style="border: 1.5px solid var(--ink); background: var(--card); padding: 22px clamp(20px, 4vw, 26px); display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">FIG.02 — OPEN SOURCE</span>
         <span style="font-size: 20px; font-weight: 700; color: var(--ink);">image_compressor</span>
         <span style="font-size: 13.5px; line-height: 1.65; color: var(--muted);">Rust로 만든 이미지 압축 라이브러리. crates.io 배포.</span>
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--faint);">RUST · ★ 9 · github ↗</span>
       </a>
       <!-- homelab card -->
-      <a href="about.html" style="border: 1.5px solid var(--ink); background: var(--card); padding: 22px 26px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
+      <a href="about.html" style="border: 1.5px solid var(--ink); background: var(--card); padding: 22px clamp(20px, 4vw, 26px); display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--faint);">FIG.03 — HOMELAB</span>
         <span style="font-size: 20px; font-weight: 700; color: var(--ink);">The Homelab</span>
         <span style="font-size: 13.5px; line-height: 1.65; color: var(--muted);">Proxmox VM 위의 HA Kubernetes 클러스터. Longhorn · ArgoCD · Grafana로 운영합니다.</span>
@@ -106,33 +112,32 @@
   </div>
 
   <!-- RECENT LOGS -->
-  <div style="padding: 56px 56px 80px;">
-    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding-bottom: 12px;">
+  <div style="padding: clamp(40px, 8vw, 56px) var(--px) clamp(56px, 10vw, 80px);">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px 16px; flex-wrap: wrap; border-bottom: 1.5px solid var(--ink); padding-bottom: 12px;">
       <span style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink);">RECENT LOGS</span>
       <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none;" style-hover="color: var(--ink);">ALL POSTS →</a>
     </div>
     <sc-for list="{{ recentPosts }}" as="post" hint-placeholder-count="3">
-      <a href="{{ post.url }}" target="_blank" style="display: grid; grid-template-columns: 110px 1fr auto; align-items: baseline; gap: 24px; padding: 22px 8px; border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">{{ post.date }}</span>
-        <span style="font-size: 17px; font-weight: 600; color: var(--ink);">{{ post.title }}</span>
-        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: {{ post.tagColor }};">{{ post.tag }}</span>
+      <a href="{{ post.url }}" target="_blank" style="display: grid; grid-template-columns: var(--log-cols); grid-template-areas: var(--log-areas); align-items: baseline; gap: 8px clamp(14px, 3vw, 24px); padding: 22px 8px; border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
+        <span style="grid-area: d; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">{{ post.date }}</span>
+        <span style="grid-area: t; font-size: clamp(15.5px, 4vw, 17px); font-weight: 600; color: var(--ink); text-wrap: pretty;">{{ post.title }}</span>
+        <span style="grid-area: g; justify-self: end; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: {{ post.tagColor }};">{{ post.tag }}</span>
       </a>
     </sc-for>
   </div>
 
   <!-- FOOTER -->
-  <div style="margin-top: auto; border-top: 1.5px solid var(--ink); padding: 20px 56px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="margin-top: auto; border-top: 1.5px solid var(--ink); padding: 18px var(--px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px 20px;">
     <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--faint);">© 2026 TAEHYEON KIM — BUILT ON THE GRID</span>
-    <div style="display: flex; gap: 20px;">
-      <a href="https://github.com/altair823" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">GITHUB ↗</a>
-      <a href="https://www.linkedin.com/in/tae-hyeon-kim-603970301/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">LINKEDIN ↗</a>
-      <a href="https://altair823.tistory.com/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">TISTORY ↗</a>
-      <a href="{{ emailHref }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none;" style-hover="color: var(--accent);">MAIL ↗</a>
+    <div style="display: flex; gap: 8px 20px; flex-wrap: wrap;">
+      <a href="https://github.com/altair823" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none; padding: 6px 0;" style-hover="color: var(--accent);">GITHUB ↗</a>
+      <a href="https://www.linkedin.com/in/tae-hyeon-kim-603970301/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none; padding: 6px 0;" style-hover="color: var(--accent);">LINKEDIN ↗</a>
+      <a href="https://altair823.tistory.com/" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none; padding: 6px 0;" style-hover="color: var(--accent);">TISTORY ↗</a>
+      <a href="{{ emailHref }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none; padding: 6px 0;" style-hover="color: var(--accent);">MAIL ↗</a>
     </div>
   </div>
 
 </div>
-
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {

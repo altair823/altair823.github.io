@@ -15,7 +15,11 @@
 <style>
   body { margin: 0; -webkit-font-smoothing: antialiased; background: var(--bg);
     --bg: #f4f3ef; --grid: rgba(22,24,29,0.05); --ink: #16181d; --muted: #55534a; --faint: #8a887e;
-    --hairline: #dbd9cf; --card: #fbfaf7; --accent: #e8490f; --accent-ink: #f4f3ef; }
+    --hairline: #dbd9cf; --card: #fbfaf7; --accent: #e8490f; --accent-ink: #f4f3ef;
+    --px: 56px; --chan-cols: 64px 200px 1fr auto; --chan-areas: "n t d g"; }
+  @media (max-width: 760px) {
+    body { --px: 20px; --chan-cols: auto 1fr auto; --chan-areas: "n t g" "d d d"; }
+  }
   ::selection { background: var(--accent); color: var(--accent-ink); }
 </style>
 </helmet>
@@ -23,60 +27,59 @@
 <div data-screen-label="Contact" style="min-height: 100vh; background: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 56px 56px; font-family: 'Pretendard Variable', Pretendard, sans-serif; color: var(--ink); display: flex; flex-direction: column;">
 
   <!-- NAV -->
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 22px 56px; border-bottom: 1.5px solid var(--ink);">
-    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; white-space: nowrap;">TK—823</a>
-    <div style="display: flex; gap: 26px; align-items: center;">
-      <a href="about.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">ABOUT</a>
-      <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">PROJECTS</a>
-      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none;" style-hover="color: var(--accent);">BLOG</a>
-      <a href="contact.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent-ink); background: var(--accent); padding: 6px 14px; text-decoration: none;">CONTACT</a>
-      <span onClick="{{ toggleTheme }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 5px 11px; cursor: pointer; user-select: none;" style-hover="background: var(--ink); color: var(--bg);">{{ themeLabel }}</span>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px 18px; padding: 14px var(--px); border-bottom: 1.5px solid var(--ink);">
+    <a href="index.html" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; white-space: nowrap; padding: 8px 0;">TK—823</a>
+    <div style="display: flex; gap: 8px clamp(14px, 2.5vw, 26px); align-items: center; flex-wrap: wrap;">
+      <a href="about.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none; padding: 8px 0;" style-hover="color: var(--accent);">ABOUT</a>
+      <a href="projects.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none; padding: 8px 0;" style-hover="color: var(--accent);">PROJECTS</a>
+      <a href="blog.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--faint); text-decoration: none; padding: 8px 0;" style-hover="color: var(--accent);">BLOG</a>
+      <a href="contact.html" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--accent-ink); background: var(--accent); padding: 8px 14px; text-decoration: none;">CONTACT</a>
+      <span onClick="{{ toggleTheme }}" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: var(--ink); border: 1.5px solid var(--ink); padding: 7px 11px; cursor: pointer; user-select: none;" style-hover="background: var(--ink); color: var(--bg);">{{ themeLabel }}</span>
     </div>
   </div>
 
   <!-- HERO -->
-  <div style="padding: 88px 56px 64px; border-bottom: 1.5px solid var(--ink);">
+  <div style="padding: clamp(48px, 10vw, 88px) var(--px) clamp(40px, 8vw, 64px); border-bottom: 1.5px solid var(--ink);">
     <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 16px;">// OPEN CHANNEL — RESPONSE TIME: USUALLY FAST</div>
-    <h1 style="margin: 0; font-size: 96px; line-height: 0.96; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">SAY<br><span style="color: transparent; -webkit-text-stroke: 2px var(--ink);">HELLO</span><span style="color: var(--accent);">.</span></h1>
-    <a href="{{ emailHref }}" style="display: inline-block; margin-top: 36px; font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 3px solid var(--accent); padding-bottom: 4px;" style-hover="color: var(--accent);">{{ emailText }}</a>
+    <h1 style="margin: 0; font-size: clamp(52px, 13vw, 96px); line-height: 0.96; font-weight: 800; letter-spacing: -0.04em; color: var(--ink);">SAY<br><span style="color: transparent; -webkit-text-stroke: 2px var(--ink);">HELLO</span><span style="color: var(--accent);">.</span></h1>
+    <a href="{{ emailHref }}" style="display: inline-block; margin-top: clamp(24px, 5vw, 36px); font-family: 'JetBrains Mono', monospace; font-size: clamp(17px, 4.8vw, 26px); font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 3px solid var(--accent); padding-bottom: 4px; overflow-wrap: anywhere; max-width: 100%;" style-hover="color: var(--accent);">{{ emailText }}</a>
   </div>
 
   <!-- CHANNELS -->
-  <div style="padding: 0 56px 80px;">
-    <a href="https://github.com/altair823" target="_blank" style="display: grid; grid-template-columns: 64px 200px 1fr auto; align-items: baseline; gap: 24px; padding: 30px 12px; border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">01</span>
-      <span style="font-size: 19px; font-weight: 700; color: var(--ink);">GitHub</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted);">github.com/altair823 — 73 repos</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);">↗</span>
+  <div style="padding: 0 var(--px) clamp(56px, 10vw, 80px);">
+    <a href="https://github.com/altair823" target="_blank" style="display: grid; grid-template-columns: var(--chan-cols); grid-template-areas: var(--chan-areas); align-items: baseline; gap: 6px clamp(14px, 3vw, 24px); padding: 28px clamp(4px, 1.5vw, 12px); border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
+      <span style="grid-area: n; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">01</span>
+      <span style="grid-area: t; font-size: 19px; font-weight: 700; color: var(--ink);">GitHub</span>
+      <span style="grid-area: d; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; color: var(--muted); overflow-wrap: anywhere;">github.com/altair823 — 73 repos</span>
+      <span style="grid-area: g; justify-self: end; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);">↗</span>
     </a>
-    <a href="https://www.linkedin.com/in/tae-hyeon-kim-603970301/" target="_blank" style="display: grid; grid-template-columns: 64px 200px 1fr auto; align-items: baseline; gap: 24px; padding: 30px 12px; border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">02</span>
-      <span style="font-size: 19px; font-weight: 700; color: var(--ink);">LinkedIn</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted);">linkedin.com/in/tae-hyeon-kim-603970301</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);">↗</span>
+    <a href="https://www.linkedin.com/in/tae-hyeon-kim-603970301/" target="_blank" style="display: grid; grid-template-columns: var(--chan-cols); grid-template-areas: var(--chan-areas); align-items: baseline; gap: 6px clamp(14px, 3vw, 24px); padding: 28px clamp(4px, 1.5vw, 12px); border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
+      <span style="grid-area: n; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">02</span>
+      <span style="grid-area: t; font-size: 19px; font-weight: 700; color: var(--ink);">LinkedIn</span>
+      <span style="grid-area: d; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; color: var(--muted); overflow-wrap: anywhere;">linkedin.com/in/tae-hyeon-kim-603970301</span>
+      <span style="grid-area: g; justify-self: end; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);">↗</span>
     </a>
-    <a href="https://altair823.tistory.com/" target="_blank" style="display: grid; grid-template-columns: 64px 200px 1fr auto; align-items: baseline; gap: 24px; padding: 30px 12px; border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">03</span>
-      <span style="font-size: 19px; font-weight: 700; color: var(--ink);">Blog</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted);">altair823.tistory.com — altair의 프로젝트 일기</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);">↗</span>
+    <a href="https://altair823.tistory.com/" target="_blank" style="display: grid; grid-template-columns: var(--chan-cols); grid-template-areas: var(--chan-areas); align-items: baseline; gap: 6px clamp(14px, 3vw, 24px); padding: 28px clamp(4px, 1.5vw, 12px); border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
+      <span style="grid-area: n; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">03</span>
+      <span style="grid-area: t; font-size: 19px; font-weight: 700; color: var(--ink);">Blog</span>
+      <span style="grid-area: d; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; color: var(--muted); overflow-wrap: anywhere;">altair823.tistory.com — altair의 프로젝트 일기</span>
+      <span style="grid-area: g; justify-self: end; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);">↗</span>
     </a>
-    <a href="{{ emailHref }}" style="display: grid; grid-template-columns: 64px 200px 1fr auto; align-items: baseline; gap: 24px; padding: 30px 12px; border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">04</span>
-      <span style="font-size: 19px; font-weight: 700; color: var(--ink);">Email</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted);">{{ emailText }}</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);">↗</span>
+    <a href="{{ emailHref }}" style="display: grid; grid-template-columns: var(--chan-cols); grid-template-areas: var(--chan-areas); align-items: baseline; gap: 6px clamp(14px, 3vw, 24px); padding: 28px clamp(4px, 1.5vw, 12px); border-bottom: 1px solid var(--hairline); text-decoration: none;" style-hover="background: var(--card);">
+      <span style="grid-area: n; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--faint);">04</span>
+      <span style="grid-area: t; font-size: 19px; font-weight: 700; color: var(--ink);">Email</span>
+      <span style="grid-area: d; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6; color: var(--muted); overflow-wrap: anywhere;">{{ emailText }}</span>
+      <span style="grid-area: g; justify-self: end; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent);">↗</span>
     </a>
   </div>
 
   <!-- FOOTER -->
-  <div style="margin-top: auto; border-top: 1.5px solid var(--ink); padding: 20px 56px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="margin-top: auto; border-top: 1.5px solid var(--ink); padding: 18px var(--px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px 20px;">
     <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--faint);">© 2026 TAEHYEON KIM — BUILT ON THE GRID</span>
     <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--faint);">KOREA · UTC+9</span>
   </div>
 
 </div>
-
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
