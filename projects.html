@@ -61,9 +61,10 @@
           사내 GPU·데이터 파이프라인 플랫폼에서 테라바이트 단위의 데이터셋을 다룹니다.
         </p>
         <p style="margin: 0; font-size: 15px; line-height: 1.8; color: var(--muted); text-wrap: pretty;">
-          저는 이 프로젝트에서 <span style="color: var(--ink); font-weight: 600;">워크스페이스별 쿼터 관리 로직 개발을 주도</span>했습니다.
-          데이터셋 용량과 파일 개수를 정교하게 제어하고, 사용자·데이터셋별 스토리지 사용량을
-          추적하며, 쿼터 미터링으로 이용 패턴 분석과 어뷰징 방지까지 연결했습니다.
+          저는 이 프로젝트에서 <span style="color: var(--ink); font-weight: 600;">워크스페이스별 쿼터 관리 개발을 주도</span>했습니다.
+          데이터셋 용량과 파일 개수 기준의 쿼터를 설계해 적용했고, 사용자·데이터셋별
+          스토리지 사용량을 집계하는 미터링을 만들었습니다.
+          이 수치는 이용 패턴 분석과 어뷰징 탐지에 쓰입니다.
         </p>
         <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
           <a href="https://guide.ncloud-docs.com/docs/ai-mlxp-datamanager" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.06em; color: var(--bg); background: var(--ink); border: 1.5px solid var(--ink); padding: 10px 18px; text-decoration: none;" style-hover="background: var(--accent); border-color: var(--accent); color: var(--accent-ink);">OFFICIAL DOCS ↗</a>
@@ -77,21 +78,21 @@
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: var(--accent);">01</span>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <span style="font-size: 15px; font-weight: 700; color: var(--ink);">워크스페이스별 쿼터 관리</span>
-            <span style="font-size: 13px; line-height: 1.6; color: var(--muted);">데이터셋 용량 · 파일 개수 등 다차원 쿼터를 정교하게 제어하는 로직 설계와 개발 주도.</span>
+            <span style="font-size: 13px; line-height: 1.6; color: var(--muted);">데이터셋 용량 · 파일 개수 등 여러 기준을 함께 검사하는 쿼터 로직 설계·개발.</span>
           </div>
         </div>
         <div style="border: 1.5px solid var(--ink); background: var(--card); padding: 18px clamp(16px, 3vw, 22px); display: flex; gap: 16px; align-items: baseline;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: var(--accent);">02</span>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <span style="font-size: 15px; font-weight: 700; color: var(--ink);">스토리지 사용량 추적</span>
-            <span style="font-size: 13px; line-height: 1.6; color: var(--muted);">사용자 · 데이터셋 단위의 스토리지 사용량 집계. TB 단위 시스템에서 정확한 수치 관리.</span>
+            <span style="font-size: 13px; line-height: 1.6; color: var(--muted);">사용자 · 데이터셋 단위의 스토리지 사용량 집계. TB 규모에서도 어긋나지 않게 수치를 맞추는 게 핵심.</span>
           </div>
         </div>
         <div style="border: 1.5px solid var(--ink); background: var(--card); padding: 18px clamp(16px, 3vw, 22px); display: flex; gap: 16px; align-items: baseline;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: var(--accent);">03</span>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <span style="font-size: 15px; font-weight: 700; color: var(--ink);">쿼터 미터링 & 어뷰징 방지</span>
-            <span style="font-size: 13px; line-height: 1.6; color: var(--muted);">사용자별 이용 패턴을 분석할 수 있는 미터링 구현. 플랫폼 자원의 어뷰징을 사전에 차단.</span>
+            <span style="font-size: 13px; line-height: 1.6; color: var(--muted);">이용 패턴을 들여다볼 수 있는 미터링 구현. 자원 어뷰징을 탐지하는 데 쓰입니다.</span>
           </div>
         </div>
         <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px;">
@@ -167,7 +168,7 @@
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent);">일기 시리즈 6편 ↗</span>
         </div>
         <span style="font-size: clamp(19px, 4.5vw, 22px); font-weight: 700; color: var(--ink);">Diarity</span>
-        <span style="font-size: 14px; line-height: 1.7; color: var(--muted); text-wrap: pretty;">Spring Boot 일기 서비스를 혼자 만들며 백엔드 운영의 전 과정을 실험. CI/CD 파이프라인, Flyway 마이그레이션, JMeter 부하테스트, MySQL Master–Slave 다중화와 k8s 배포까지 — 전 과정을 블로그에 기록.</span>
+        <span style="font-size: 14px; line-height: 1.7; color: var(--muted); text-wrap: pretty;">Spring Boot 일기 서비스를 혼자 만들며 백엔드 운영을 처음부터 끝까지 굴려본 실험. CI/CD 파이프라인, Flyway 마이그레이션, JMeter 부하테스트, MySQL Master–Slave 다중화와 k8s 배포까지 해봤고, 과정은 전부 블로그에 적었습니다.</span>
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.7; color: var(--faint); margin-top: auto;">SPRING BOOT · MYSQL · FLYWAY · JMETER · K8S</span>
       </a>
       <a href="https://github.com/altair823/image_compressor" target="_blank" style="border: 1.5px solid var(--ink); background: var(--card); padding: 26px clamp(20px, 4vw, 28px); display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;" style-hover="transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--accent);">
